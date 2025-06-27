@@ -1,0 +1,83 @@
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div class="login-container">
+    <div class="logo-section">
+      <ion-img 
+        src="assets/icon/logo.png" 
+        class="logo"
+        alt="EyesOn Logo">
+      </ion-img>
+      <h1 class="welcome-text">Welcome</h1>
+      <p class="subtitle">Sign in with your mobile number</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="!isOtpSent ? sendOtp() : login()" class="login-form">
+      <!-- Mobile Number Input (shown when OTP is not sent) -->
+      <div class="form-group" [class.focused]="isMobileFocused" *ngIf="!isOtpSent">
+        <ion-item lines="none" class="input-item">
+          <ion-icon 
+            name="phone-portrait-outline" 
+            slot="start" 
+            class="input-icon">
+          </ion-icon>
+          <ion-input 
+            type="tel" 
+            formControlName="MobileNumber"
+            inputmode="numeric"
+            maxlength="10"
+            placeholder="Enter mobile number"
+            (ionFocus)="isMobileFocused = true"
+            (ionBlur)="isMobileFocused = false">
+          </ion-input>
+        </ion-item>
+      </div>
+
+      <!-- OTP Input (shown when OTP is sent) -->
+      <div *ngIf="isOtpSent" class="otp-section">
+        <p class="otp-instruction">Enter the OTP sent to {{ loginForm.get('MobileNumber')?.value }}</p>
+        
+        <div class="otp-container">
+          <div class="otp-inputs">
+            <input 
+              *ngFor="let i of [0,1,2,3,4]" 
+              type="tel" 
+              maxlength="1"
+              [value]="loginForm.get('OTP')?.value?.[i] || ''"
+              (keydown)="onOtpKeyDown($event, i)"
+              class="otp-input"
+              [class.filled]="loginForm.get('OTP')?.value?.[i]"
+            >
+          </div>
+        </div>
+        
+        <div class="resend-otp">
+          <ion-button 
+            fill="clear" 
+            size="small" 
+            (click)="resendOtp()"
+            [disabled]="countdown > 0"
+            class="resend-button">
+            Resend OTP {{countdown > 0 ? '(' + countdown + 's)' : ''}}
+          </ion-button>
+          <ion-button 
+            fill="clear" 
+            size="small" 
+            (click)="resetForm()"
+            class="change-number-button">
+            Change Number
+          </ion-button>
+        </div>
+      </div>
+
+      <ion-button 
+        expand="block" 
+        shape="round" 
+        class="login-button"
+        [disabled]="(!isOtpSent && loginForm.get('MobileNumber')?.invalid) || (isOtpSent && loginForm.get('OTP')?.invalid)"
+        type="submit">
+        {{ isOtpSent ? 'Verify OTP' : 'Send OTP' }}
+      </ion-button>
+ 
+    </form>
+ 
+  </div>
+</ion-content>

@@ -1,0 +1,19 @@
+.document-upload-container {
+  .upload-btn {
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--gray-dark-4);
+    border-radius: 10px;
+    outline: none;
+  }
+}
+
+ion-modal#document-upload {
+  --width: 260px;
+  --height: 170px;
+  --border-radius: 6px;
+  padding: 10px;
+}

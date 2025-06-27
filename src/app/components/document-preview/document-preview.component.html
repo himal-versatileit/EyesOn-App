@@ -1,0 +1,15 @@
+<div class="document-preview-container">
+  @for (item of uploadedDocuments; track $index) {
+    <div class="document-card">
+      @if (item.FileType === FILE_TYPE.IMAGE) {
+        <img [src]="item.FilesName" (click)="openDocument(item.FilesName)" />
+      }
+      @if (item.FileType === FILE_TYPE.PDF) {
+        <img src="assets/file-icons/pdf.png" class="cursor-pointer" (click)="openDocument(item.ID ? item.BlobFile : item.FilesName)" />
+      }
+      @if (isDeletable) {
+        <ion-icon name="close-outline" class="delete-icon" (click)="onDelete($index)"></ion-icon>
+      }
+    </div>
+  }
+</div>

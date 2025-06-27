@@ -1,0 +1,7 @@
+{
+  "name": "EyesOn",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

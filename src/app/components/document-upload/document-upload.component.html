@@ -1,0 +1,26 @@
+<div class="document-upload-container">
+  <input type="file" name="" class="d-none" [multiple]="isMultiple" (change)="onFileChange($event)" #fileInput [accept]="fileAccepts" />
+  <button class="upload-btn ion-activatable ripple-parent rounded-rectangle position-relative" id="open-document-upload-modal">
+    <ion-icon name="attach-outline" class="text-white fs-20"></ion-icon>
+    <ion-ripple-effect></ion-ripple-effect>
+  </button>
+</div>
+
+<ion-modal #modal trigger="open-document-upload-modal" id="document-upload">
+  <ng-template>
+    <ion-content color="dark">
+      <div class="p-3">
+        <h1 class="heading text-primary">Upload</h1>
+        <div class="d-flex flex-column gap-2 mt-4">
+          @if (isCamera) {
+            <custom-button name="Camera" [isRipple]="true" color="warning" customClass="w-100" (clickEmitter)="onClickCamera()" />
+          }
+
+          @if (isDocument) {
+            <custom-button name="Document" [isRipple]="true" customClass="w-100" (clickEmitter)="onSelectDocument()" />
+          }
+        </div>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>

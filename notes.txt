@@ -1,0 +1,11 @@
+
+* Keystore Information
+
+Keystore Password : Rspl@1212SPACE
+Keystore Alias : com.rs.officer.dmc
+Key Password : Rspl@1212SPACE
+
+* Version Upgrade
+
+- capacitor-set-version set:android -v 1.0 -b 1
+

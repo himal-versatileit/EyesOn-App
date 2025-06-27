@@ -1,0 +1,4 @@
+<button (click)="onClick()" [disabled]="isDisabled" [ngClass]="'btn-' + size + '-' + fill + '-' + color + ' ion-activatable position-relative overflow-hidden ' + customClass">
+  <ion-ripple-effect *ngIf="isRipple"></ion-ripple-effect>
+  <span>{{ name }}</span>
+</button>

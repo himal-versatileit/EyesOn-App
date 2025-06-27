@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <string name="app_name">EyesOn</string>
+  <string name="title_activity_main">EyesOn</string>
+  <string name="package_name">com.rs.officer.dmc</string>
+  <string name="custom_url_scheme">com.rs.officer.dmc</string>
+</resources>

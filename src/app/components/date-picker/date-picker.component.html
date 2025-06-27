@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <!-- <ion-buttons slot="start">
+      <ion-button color="medium" (click)="onCancel()">Cancel</ion-button>
+    </ion-buttons> -->
+    <ion-title class="text-white ps-2">{{ data.title }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onConfirm()" [strong]="true">Confirm</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding" color="dark">
+  <div class="d-flex justify-content-center align-items-center pt-4">
+    <ion-datetime
+      [presentation]="presentation"
+      color="primary"
+      [preferWheel]="true"
+      [min]="data.minDate"
+      [max]="data.maxDate"
+      [value]="data.selectedDate"
+      (ionChange)="onChangeDate($event)"></ion-datetime>
+  </div>
+</ion-content>

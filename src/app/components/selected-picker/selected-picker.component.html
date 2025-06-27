@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <div class="d-flex justify-content-between align-items-center px-2">
+      <ion-title class="text-white">{{ data.title }}</ion-title>
+    </div>
+    <ion-buttons class="left">
+      <ion-button (click)="onCloseModal()" [strong]="true">Close</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="onSubmit()" [strong]="true">Confirm</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding" color="dark">
+  <div class="picker-sheet-container bg-dark">
+    <div class="search-container px-3 mt-3">
+      <input type="text" autocomplete="name" class="form-control" (input)="filterList($event)" [(ngModel)]="searchText" (ngModelChange)="onSearchTask()" placeholder="Search..." />
+    </div>
+    <div class="search-items px-3 mt-2">
+      @for (item of data; track $index) {
+        @if (item.isFound) {
+          <div class="bg-dark text-white border-bottom-one border-dark-3-gray p-2 ion-activatable position-relative overflow-hidden">
+            <ion-checkbox [checked]="item.IsChecked" (ionChange)="onChange(item, $event)" labelPlacement="end">{{ item.Name }}</ion-checkbox>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+        }
+      }
+    </div>
+  </div>
+</ion-content>
