@@ -2,7 +2,6 @@ import { CapacitorConfig } from "@capacitor/cli";
 
 const config: CapacitorConfig = {
   appId: "com.eyeson",
-  // appName: "DMC Field Operation Manager",
   appName: "EyesOn",
   webDir: "www",
   server: {
@@ -10,10 +9,6 @@ const config: CapacitorConfig = {
   },
   bundledWebRuntime: false,
   plugins: {
-    // SplashScreen: {
-    //   launchShowDuration: 2000,
-    //   launchAutoHide: true,
-    // },
     SplashScreen: {
       launchShowDuration: 2000,
       launchAutoHide: true,

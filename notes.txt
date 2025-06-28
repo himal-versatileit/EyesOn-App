@@ -1,11 +1,10 @@
 
 * Keystore Information
 
-Keystore Password : Rspl@1212SPACE
-Keystore Alias : com.rs.officer.dmc
-Key Password : Rspl@1212SPACE
+Keystore Password : 28031996
+Keystore Alias : com.eyeson
+Key Password : 28031996
 
 * Version Upgrade
 
 - capacitor-set-version set:android -v 1.0 -b 1
-

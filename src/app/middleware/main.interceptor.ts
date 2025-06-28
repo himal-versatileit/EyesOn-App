@@ -3,7 +3,7 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from "@angular/c
 import { Observable, catchError, finalize, map, throwError } from "rxjs";
 import { Router } from "@angular/router";
 import { LoaderService } from "../services/loader.service";
-import { GlobalService, SecureStorageService, ToastrService } from "../services";
+import { SecureStorageService, ToastrService } from "../services";
 import { SESSION_KEYS } from "../models";
 import { environment } from "src/environments/environment";
 
@@ -13,7 +13,6 @@ export class MainInterceptor implements HttpInterceptor {
   private readonly loaderService = inject(LoaderService);
   private readonly toastrService = inject(ToastrService);
   private readonly secureStorage = inject(SecureStorageService);
-  private readonly globalService = inject(GlobalService);
 
   constructor() {}
 
@@ -31,7 +30,8 @@ export class MainInterceptor implements HttpInterceptor {
           switch (error?.status) {
             case 401:
               this.toastrService.presentToast("Unauthorized", "danger");
-              await this.globalService.onSignOut();
+              await this.secureStorage.clearStorage();
+              this.router.navigate(["/"]);
               break;
             case 404:
               await this.toastrService.presentToast(message, "warning");

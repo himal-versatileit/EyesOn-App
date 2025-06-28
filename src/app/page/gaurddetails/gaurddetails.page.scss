@@ -1,0 +1,29 @@
+.profile-icon {
+    font-size: 4rem;
+    display: block;
+    margin: 0 auto 10px;
+    color: var(--ion-color-primary);
+  }
+  
+  ion-card {
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+  }
+  
+  ion-note {
+    font-size: 1rem;
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .spin {
+    animation: spin 1s linear infinite;
+  }

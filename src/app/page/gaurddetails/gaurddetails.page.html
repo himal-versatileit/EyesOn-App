@@ -1,0 +1,57 @@
+<ion-content fullscreen="true" class="ion-padding">
+  <div *ngIf="isLoading && !hasError" class="ion-text-center ion-padding">
+    <ion-spinner></ion-spinner>
+    <p>Loading guard information...</p>
+  </div>
+
+  <div *ngIf="hasError" class="ion-text-center ion-padding">
+    <ion-icon name="alert-circle" size="large" color="danger"></ion-icon>
+    <p>Failed to load guard information</p>
+  </div>
+  <ng-container *ngIf="!isLoading && !hasError">
+    <div>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title class="ion-text-center">
+            <ion-icon name="person-circle" class="profile-icon"></ion-icon>
+            <div>{{ guardDetails.FullName || 'N/A' }}</div>
+          </ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-list lines="full" class="ion-no-padding">
+          
+            <ion-item>
+              <ion-icon name="mail" slot="start" color="primary"></ion-icon>
+              <ion-label>Email</ion-label>
+              <ion-note slot="end">{{ guardDetails.Email || 'N/A' }}</ion-note>
+            </ion-item>
+
+            <ion-item>
+              <ion-icon name="call" slot="start" color="primary"></ion-icon>
+              <ion-label>Phone</ion-label>
+              <ion-note slot="end">{{ guardDetails.PhoneNumber || 'N/A' }}</ion-note>
+            </ion-item>
+
+            <ion-item>
+              <ion-icon name="toggle-outline" slot="start" color="primary"></ion-icon>
+              <ion-label>Status</ion-label>
+              <ion-badge *ngIf="guardDetails.IsActive !== undefined" 
+                        slot="end" 
+                        [color]="guardDetails.IsActive ? 'success' : 'danger'">
+                {{ guardDetails.IsActive ? 'Active' : 'Inactive' }}
+              </ion-badge>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <ng-template #noData>
+      <div class="ion-text-center ion-padding">
+        <ion-icon name="alert-circle" size="large" color="medium"></ion-icon>
+        <p>No guard information available</p>
+      </div>
+    </ng-template>
+  </ng-container>
+</ion-content>

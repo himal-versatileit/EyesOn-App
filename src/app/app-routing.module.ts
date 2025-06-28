@@ -4,16 +4,22 @@ import { UnAuthGuard } from "./guards/un-auth.guard";
 import { AuthGuard } from "./guards/auth.guard";
 
 const routes: Routes = [
-  { path: "", redirectTo: "login", pathMatch: "full" },
+  { 
+    path: "", 
+    redirectTo: "guarddashboard", 
+    pathMatch: "full" 
+  },
+
   {
     path: 'login',
     loadChildren: () => import('./page/login/login.module').then(m => m.LoginPageModule),
     canActivate: [UnAuthGuard]
   },
   {
-    path: 'home',
-    loadChildren: () => import('./page/home/home.module').then( m => m.HomePageModule)
+    path: 'guarddashboard',
+    loadChildren: () => import('./page/guarddashboard/guarddashboard.module').then( m => m.GuarddashboardPageModule)
   },
+
 
 ];
 @NgModule({

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { interval, Subscription, take } from 'rxjs';
-import { AccountService } from 'src/app/services/account.service';
+import { AccountService } from 'src/app/services/auth.service';
 import { phonePortraitOutline, keypadOutline, close } from 'ionicons/icons';
 
 @Component({

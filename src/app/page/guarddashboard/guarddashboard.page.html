@@ -1,0 +1,50 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom" class="custom-tab-bar">
+    <ion-tab-button 
+      [routerLink]="['/guarddashboard/gaurddetails']"
+      routerDirection="root"
+      [ngClass]="{ 'tab-selected': activeTab === 'gaurddetails' }">
+      <ion-icon name="person-circle-outline"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button 
+      [routerLink]="['/guarddashboard/shift']"
+      routerDirection="root"
+      [ngClass]="{ 'tab-selected': activeTab === 'shift' }">
+      <ion-icon name="time-outline"></ion-icon>
+      <ion-label>Shift</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button 
+      [routerLink]="['/guarddashboard/checkpoints']"
+      routerDirection="root"
+      [ngClass]="{ 'tab-selected': activeTab === 'checkpoints' }">
+      <ion-icon name="location-outline"></ion-icon>
+      <ion-label>Checkpoints</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button 
+      [routerLink]="['/guarddashboard/incidents']"
+      routerDirection="root"
+      [ngClass]="{ 'tab-selected': activeTab === 'incidents' }">
+      <ion-icon name="warning-outline"></ion-icon>
+      <ion-label>Incidents</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button 
+      [routerLink]="['/guarddashboard/overview']"
+      routerDirection="root"
+      [ngClass]="{ 'tab-selected': activeTab === 'overview' }">
+      <ion-icon name="alert-circle-outline"></ion-icon>
+      <ion-label>Overview</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+  <!-- Main content area for the tabs -->
+  <ion-router-outlet name="gaurddetails"></ion-router-outlet>
+  <ion-router-outlet name="shift"></ion-router-outlet>
+  <ion-router-outlet name="checkpoints"></ion-router-outlet>
+  <ion-router-outlet name="incidents"></ion-router-outlet>
+  <ion-router-outlet name="overview"></ion-router-outlet>
+</ion-tabs>

@@ -1,0 +1,52 @@
+// Tab bar styles
+ion-tab-bar {
+  --background: var(--ion-color-light);
+  --border: 1px solid var(--ion-color-light-shade);
+  padding: 5px 0;
+  height: 60px;
+  
+  ion-tab-button {
+    --color: var(--ion-color-medium);
+    --color-selected: var(--ion-color-primary);
+    
+    ion-icon {
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+    
+    ion-label {
+      font-size: 12px;
+      margin-top: 4px;
+    }
+    
+    // Active tab state
+    &.tab-selected {
+      --color: var(--ion-color-primary);
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 3px;
+        background-color: var(--ion-color-primary);
+        border-radius: 3px;
+      }
+    }
+  }
+}
+
+// Ensure the content takes full height
+ion-content {
+  --padding-bottom: 60px; // Height of the tab bar
+}
+
+// Add some spacing for the content
+ion-router-outlet {
+  display: block;
+  height: 100%;
+  overflow: auto;
+}
